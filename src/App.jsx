@@ -19,7 +19,7 @@ function App() {
     },
   ]);
 
-  const bottomRef = useRef(null); // 👈 Add this
+  const bottomRef = useRef(null); 
 
   const toggleDarkMode = () => {
     setDarkmode(!darkMode);
