@@ -3,7 +3,7 @@ import {Send} from 'lucide-react';
 export default function ChatInput({darkMode,input,setinput ,loading,handleSendMessage}) {
   return (
     <div className={`${darkMode?"bg-gray-800 border-t border-gray-700":
-    "bg-white border-t border-gray-200"}p-4 my-2`}>
+    "bg-white border-t border-gray-200"}p-4 pb-3 pt-3`}>
         <div className='max-w-5xl mx-auto'>
             <div className='flex items-center space-x-3'>
                 <input type="text" 
