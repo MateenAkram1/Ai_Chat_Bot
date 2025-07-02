@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { User, Bot, Volume2, PauseCircle, PlayCircle, XCircle } from 'lucide-react';
-
+import { cleanMarkdown } from '../../utils/clearmarkdowns.js';
 function ChatMessage({ darkMode, messages, formatTime }) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -87,8 +87,8 @@ function ChatMessage({ darkMode, messages, formatTime }) {
               </span>
             </div>
 
-            <p className="text-sm md:text-base whitespace-pre-wrap break-words leading-relaxed">
-              {messages.text}
+            <p className='text-sm md:text-base whitespace-pre-wrap break-words leading-relaxed'>
+              {messages.sender === 'bot' ? cleanMarkdown(messages.text) : messages.text}
             </p>
 
             {/* 🔊 Voice Controls */}
