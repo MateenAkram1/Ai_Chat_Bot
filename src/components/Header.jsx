@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bot, Sparkles, Sun, Moon } from 'lucide-react';
 
-function Header({ darkMode, toggleDarkMode }) {
+function Header({ darkMode, toggleDarkMode,name }) {
   return (
     <header
       className={`${
@@ -15,7 +15,7 @@ function Header({ darkMode, toggleDarkMode }) {
           <div className="p-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full">
             <Bot className="h-6 w-6 text-white" />
           </div>
-          <h1 className="text-xl font-bold">Chat with AI</h1>
+          <h1 className="text-xl font-bold">{name}</h1>
         </div>
 
         <div className="flex items-center space-x-4">

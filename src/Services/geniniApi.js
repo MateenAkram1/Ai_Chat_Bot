@@ -1,7 +1,14 @@
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const GEMINI_API_URL = `${import.meta.env.VITE_GEMINI_API_URL}key=${GEMINI_API_KEY}}`
-
-export const generateContent = async (prompt) => {
+export const generateContent = async (prompt,botConfig) => {
+  const systemPrompt = `
+    You are ${botConfig.name}, a bot that acts as a ${botConfig.role}.
+    Your tone should be ${botConfig.tone}.
+    Follow these instructions: ${botConfig.instructions}.
+    
+    ----
+    
+    Prompt: ${prompt}
+  `;
+  prompt = systemPrompt
   const res = await fetch('/api/generate', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -9,5 +16,5 @@ export const generateContent = async (prompt) => {
   });
 
   const data = await res.json();
-  return data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response from Gemini.';
+  return data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Server error, Try again please.';
 };

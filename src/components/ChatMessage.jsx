@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { User, Bot, Volume2, PauseCircle, PlayCircle, XCircle } from 'lucide-react';
 import { cleanMarkdown } from '../../utils/clearmarkdowns.js';
-function ChatMessage({ darkMode, messages, formatTime }) {
+function ChatMessage({ darkMode, messages, formatTime, name }) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const utteranceRef = useRef(null);
@@ -72,7 +72,7 @@ function ChatMessage({ darkMode, messages, formatTime }) {
           <div className="flex-1">
             <div className="mb-1 flex justify-between items-center">
               <span className="font-medium">
-                {messages.sender === 'user' ? 'You' : 'AI Assistant'}
+                {messages.sender === 'user' ? 'You' : `${name}`}
               </span>
               <span
                 className={`text-xs ${
