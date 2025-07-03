@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import ChatMessage from './components/ChatMessage.jsx';
 import { formatTime } from '../utils/ChatUtils.js';
-import Loadingindicator from './components/loadingindicator.jsx';
+import Loadingindicator from './components/LoadingIndicator.jsx';
 import ChatInput from './components/ChatInput.jsx';
 import BotBuilder from './components/BotBuilder.jsx';
 import { generateContent } from './Services/geniniApi.js';
